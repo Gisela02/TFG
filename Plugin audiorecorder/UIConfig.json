@@ -1,0 +1,88 @@
+{
+  "page": {
+    "label": "TRANSLATE.PLUGIN_CONFIGURATION",
+    "description": "Controla la reproducción y grabación de audio usando la Pisound",
+    "icon": "fa-music"
+  },
+  "sections": [
+    {
+      "section": "Controles de Archivos",
+      "description": "Especifica las rutas y nombres de archivos para reproducción y grabación",
+      "content": [
+        {
+          "id": "file_path",
+          "element": "input",
+          "type": "text",
+          "label": "Ruta del archivo de reproducción",
+	        "value": "/home/volumio/recordings/",
+          "placeholder": "/home/volumio/recordings/"
+        },
+        {
+          "id": "file_name",
+          "element": "input",
+          "type": "text",
+          "label": "Nombre del archivo",
+	        "value": "audio.wav",
+          "placeholder": "output.wav"
+        },
+	{
+          "id": "save_button",
+          "element": "button",
+          "label": "Guardar Configuración",
+          "onClick": {
+            "type": "callMethod",
+	          "endpoint": "system_controller/audiorecorder",
+            "method": "saveConfig"
+            
+          }
+        }
+      ]
+    },
+    {
+      "section": "Controles de Reproducción y Grabación",
+      "description": "Controla la reproducción y grabación de pistas de audio",
+      "content": [
+        {
+          "id": "playButton",
+          "element": "button",
+          "label": "Play",
+          "onClick": {
+            "type": "callMethod",
+	          "endpoint": "system_controller/audiorecorder",
+            "method": "playAudio"
+          }
+        },
+        {
+          "id": "pauseButton",
+          "element": "button",
+          "label": "Pause",
+          "onClick": {
+            "type": "callMethod",
+	          "endpoint": "system_controller/audiorecorder",
+            "method": "pauseAudio"
+          }
+        },
+        {
+          "id": "stopButton",
+          "element": "button",
+          "label": "Stop",
+          "onClick": {
+            "type": "callMethod",
+	          "endpoint": "system_controller/audiorecorder",
+            "method": "stopAudio"
+          }
+        },
+        {
+          "id": "saveButton",
+          "element": "button",
+          "label": "Save",
+          "onClick": {
+            "type": "callMethod",
+	          "endpoint": "system_controller/audiorecorder",
+            "method": "saveAudio"
+          }
+        }
+      ]
+    }
+  ]
+}
